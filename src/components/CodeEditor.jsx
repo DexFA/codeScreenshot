@@ -1,13 +1,18 @@
 import { cn } from "@/lib/utils";
 import { codeSnippets } from "@/options";
+import useStore from "@/store";
 import hljs from "highlight.js";
 import Editor from "react-simple-code-editor";
 
 const CodeEditor = () => {
+	const store = useStore();
 	return (
 		<div
 			className={cn(
 				"min-w-[400px] border-2 rounded-xl shadow-2xl",
+				store.darkMode
+					? "bg-black/75 border-gray-600/40"
+					: "bg-white/75 border-gray-200/20",
 				"bg-black/75 border-gray-600/40"
 			)}
 		>
